@@ -10,6 +10,10 @@ workflows:
       - name: Get Flutter packages
         script: flutter pub get
       - name: Build iOS Application
-        script: flutter build ios --release --no-codesign
+        script: |
+          cd ios
+          pod install
+          cd ..
+          flutter build ios --release --no-codesign --suppress-analytics
     artifacts:
       - build/ios/iphoneos/Runner.app

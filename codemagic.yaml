@@ -15,6 +15,6 @@ workflows:
           flutter pub get
       - name: Build iOS Application
         script: |
-          flutter build ios --release --no-codesign
+          flutter build ios --simulator --no-codesign
     artifacts:
-      - build/ios/iphoneos/Runner.app
+      - build/ios/iphonesimulator/Runner.app

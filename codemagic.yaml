@@ -7,13 +7,14 @@ workflows:
       flutter: stable
       xcode: latest
     scripts:
-      - name: Get Flutter packages
+      - name: Create iOS folder if missing & Get packages
         script: |
-          find . -name "pubspec.yaml" -execdir flutter pub get \;
+          if [ ! -d "ios" ]; then
+            flutter create . --platforms=ios
+          fi
+          flutter pub get
       - name: Build iOS Application
         script: |
-          PROJECT_DIR=$(dirname $(find . -name "pubspec.yaml" | head -n 1))
-          cd "$PROJECT_DIR"
           flutter build ios --release --no-codesign
     artifacts:
-      - /**/build/ios/iphoneos/Runner.app
+      - build/ios/iphoneos/Runner.app

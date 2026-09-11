@@ -180,7 +180,7 @@ class _WebViewPageState extends State<WebViewPage> {
               onWebResourceError:
                   (WebResourceError error) {
                 // Only handle errors for the main page.
-                if (!error.isForMainFrame) {
+               if (error.isForMainFrame == false) {
                   return;
                 }
 

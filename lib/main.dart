@@ -460,7 +460,7 @@ class _WebViewPageState extends State<WebViewPage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'المياه السيم',
+            'سوبر ماركت أبو وديع',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
